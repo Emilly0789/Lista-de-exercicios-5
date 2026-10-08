@@ -1,1 +1,20 @@
+As interfaces funcionam como contratos formais no desenvolvimento de software. Elas definem o que uma classe deve fazer, mas não como ela deve fazer. Essa separação entre definição e implementação é a base para a criação de sistemas desacoplados e de fácil manutenção.
 
+Como as interfaces ajudam no desacoplamento e manutenção
+
+• Inversão de Dependência: Em vez de uma classe de alto nível depender diretamente de uma classe de baixo nível (concreta), ambas passam a depender de uma abstração (a interface). Se a implementação interna mudar, a classe de alto nível permanece intacta.
+• Substituibilidade (Polimorfismo): Qualquer classe que implemente a interface pode ser usada de forma intercambiável. Isso permite trocar componentes do sistema sem quebrar outras partes do código.
+• Facilidade de Testes (Mocking): Permite isolar o comportamento de uma classe durante os testes unitários. Você pode substituir uma classe real complexa (como um banco de dados) por um objeto simulado (mock) que apenas implementa a mesma interface.
+• Trabalho em Equipe: Desenvolvedores podem trabalhar em paralelo. Uma vez definida a interface, um programador pode focar em criar a tela que consome a interface, enquanto outro foca em implementar a lógica de negócios por trás dela.
+
+Exemplo Prático: Sistema de Envio de Notificações
+
+Imagine que você está desenvolvendo um sistema de e-commerce e precisa enviar uma notificação de confirmação de compra para o cliente.
+
+Abordagem Ruim: Dependência Direta de Classe Concreta
+
+Se você criar uma classe PedidoProcessador que instancia diretamente uma classe ServicoEmailTwilio, seu sistema estará rigidamente acoplado.
+text
+[PedidoProcessador] ---> [ServicoEmailTwilio] (Acoplamento Rígido)
+Use o código com cuidado.
+Se o Twilio ficar muito caro e a empresa decidir mudar para o SendGrid, ou se decidir que além de e-mail quer enviar também um SMS, você terá que modificar a classe PedidoProcessador. Isso viola o princípio do código limpo (Open/Closed Principle) e aumenta a chance de introduzir novos bugs.
