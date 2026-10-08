@@ -1,1 +1,11 @@
+Os métodos com corpo (default e static) em interfaces foram introduzidos a partir do Java 8.
 
+Utilidade dos métodos em interfaces
+
+• Métodos default (padrão):
+	• Evolução sem quebras: Permitem adicionar novos métodos a uma interface existente sem forçar todas as classes que a implementam a reescreverem seus códigos.
+	• Comportamento padrão: Fornecem uma implementação base que pode ser herdada diretamente pelas classes ou sobrescrita, se necessário.
+	• Suporte à Programação Funcional: Foram fundamentais para a criação das Expressões Lambda e dos métodos de default da API Stream.
+• Métodos static (estáticos):
+	• Organização de código: Permitem agrupar métodos utilitários ou auxiliares diretamente na própria interface, eliminando a necessidade de criar classes auxiliares separadas (como Collections ou Utils).
+	• Chamada direta: Pertencem à interface e são invocados diretamente por ela (ex: NomeDaInterface.metodoEstatico()), sem depender de uma instância de objeto.
